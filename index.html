@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+      
+      <div>
+        
+      </div>
+      <main>
+        <div class="illust-container">
+          <img src="1.png" alt="image" style="width: 100px; height: auto; position: absolute; top: 0; left: 0;">
+        <div class="leaves-container">
+        <div class="leaves"></div>
+        <div class="leaves"></div>
+        <img src="1.png" alt="image" style="width: 100px; height: auto; position: absolute; top: 0; left: 0;">
+        </div>
+        <div class="strawberry">
+          
+        </div>
+        
+        </div>
+        </main>
+
+
+
+
+    <style>
+        :root {
+  --base-size: 80vw;
+  --bg: hsla(140, 40%, 80%, 0.5);
+  --bg-fill: hsla(48, 80%, 89%, 50%);
+  --bg-body: hsl(270, 10%, 96%);
+  --red: hsl(351, 76%, 71%);
+  --green: hsl(144, 33%, 70%);
+  --green-med: hsl(144, 36%, 67%);
+  --green-dk: hsl(144, 33%, 65%);
+  --seed: hsl(351, 76%, 66%);
+  --seed-hl: hsl(351, 80%, 75%);
+}
+
+html,
+body,
+main,
+.strawberry {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+html,
+body,
+main,
+.illust-container:before,
+.strawberry:before,
+.strawberry:after {
+  height: 100%;
+  width: 100%;
+}
+
+.strawberry,
+.strawberry:before,
+.strawberry:after,
+.leaves-container,
+.leaves,
+.leaves:before,
+.leaves:after,
+.illust-container:before {
+  position: absolute;
+  content: "";
+}
+
+main,
+.illust-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: var(--bg-body);
+}
+
+.illust-container {
+  width: var(--base-size);
+  height: var(--base-size);
+  position: relative;
+  transform: rotate(320deg);
+}
+
+.illust-container:before {
+  border-radius: 50%;
+  transform: rotate(-320deg);
+  background: linear-gradient(
+      to right,
+      var(--bg) 25%,
+      var(--bg-fill) 25%,
+      var(--bg-fill) 50%,
+      var(--bg) 50%,
+      var(--bg) 75%,
+      var(--bg-fill) 75%,
+      var(--bg-fill) 75%
+    ),
+    linear-gradient(
+      to top,
+      var(--bg) 25%,
+      var(--bg-fill) 25%,
+      var(--bg-fill) 50%,
+      var(--bg) 50%,
+      var(--bg) 75%,
+      var(--bg-fill) 75%,
+      var(--bg-fill) 75%
+    );
+  background-size: 40% 40%;
+  background-blend-mode: multiply;
+  z-index: -2;
+}
+
+.strawberry {
+  background-color: var(--red);
+  height: calc(var(--base-size) * 0.7);
+  width: calc(var(--base-size) * 0.7);
+  border-radius: 50% 50% 50% 50% / 27% 27% 73% 73%;
+  transform: scale(0.95, 1.05) translateY(9%);
+}
+
+.strawberry:before {
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      var(--seed-hl) 8%,
+      var(--seed) 8%,
+      var(--seed) 13%,
+      transparent 13%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      var(--seed-hl) 11%,
+      var(--seed) 11%,
+      var(--seed) 16%,
+      transparent 16%
+    );
+  background-size: 13% 13%;
+}
+
+.strawberry:after {
+  opacity: 0.3;
+  background-image: radial-gradient(
+    circle at center,
+    transparent 20%,
+    var(--red) 60%
+  );
+}
+
+.leaves-container {
+  height: calc(var(--base-size) * 0.4);
+  width: calc(var(--base-size) * 0.8);
+  top: -10%;
+  left: 12%;
+}
+
+.leaves {
+  height: 90%;
+  width: 35%;
+  border-radius: 60% 50% / 40% 50%;
+  background-image: radial-gradient(
+    circle at 50% 30%,
+    transparent,
+    transparent 53%,
+    var(--green) 53%
+  );
+  transform: scaleY(1.1) translateY(10%);
+}
+
+.leaves:before,
+.leaves:after {
+  height: calc(var(--base-size) * 0.4);
+  width: calc(var(--base-size) * 0.35);
+  border-radius: 0% 50% / 0% 50%;
+}
+
+.leaves:before {
+  background-image: radial-gradient(
+    circle at 125% 37%,
+    transparent,
+    transparent 56%,
+    var(--green-dk) 56%
+  );
+  transform: translate(52%, 10%) rotate(100deg) scaleX(-1);
+  clip-path: inset(70% 0 0 0);
+}
+
+.leaves:after {
+  background-image: radial-gradient(
+    circle at 125% 37%,
+    transparent,
+    transparent 56%,
+    var(--green) 56%
+  );
+  transform: translate(70%, 10%) rotate(160deg) scaleX(-1);
+}
+
+.leaves + .leaves {
+  transform: scaleX(-1) translate(-163%, 8%) rotate(16deg);
+  background-image: radial-gradient(
+    circle at 38% 23%,
+    transparent,
+    transparent 65%,
+    var(--green) 64%
+  );
+  z-index: -1;
+}
+
+.leaves + .leaves:before {
+  transform: scaleX(-1) translate(10%, 30%) scaleY(-1) rotate(-10deg);
+  background-image: radial-gradient(
+    circle at 96% 49%,
+    transparent,
+    transparent 56%,
+    var(--green-dk) 56%
+  );
+  clip-path: inset(0 0 0 0);
+}
+
+.leaves + .leaves:after {
+  transform: translateY(37%) scaleY(-1) rotate(27deg) translateX(164%);
+  width: 65%;
+  background-image: radial-gradient(
+    circle at 190% 91%,
+    transparent,
+    transparent 56%,
+    var(--green-med) 56%
+  );
+}
+
+@media (orientation: landscape) {
+  :root {
+    --base-size: 80vh;
+  }
+}
+
+
+
+    </style>
+    
+</body>
+</html>
